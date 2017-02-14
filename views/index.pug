@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title 마법의 소라고둥님!
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script.
+      function send() {
+        $.ajax({
+          type: 'POST', 
+          url: '/'
+        }).then(function(data) {
+          $('#result').html('')
+          if(data.val)
+            $('#result').append('네')
+          else
+            $('#result').append('아니오')
+        })
+      }
+  body
+    h1 마법의 소라고둥님,
+    input(type="text")
+    button(onclick="send()") 질문!
+    div#result
